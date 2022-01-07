@@ -20,16 +20,13 @@ class PaypalController extends Controller
     {
         return new ApiContext(
             new OAuthTokenCredential(
-                env('PAYPAL_CLIENT_ID'),
-                env('PAYPAL_CLIENT_SECRET')
+                clientId: env('PAYPAL_CLIENT_ID'),
+                clientSecret: env('PAYPAL_CLIENT_SECRET')
             )
         );
-
-        // Going Live
+        // For Going Live
         // ->setConfig(
-        //     [
-        //         'mode' => 'live',
-        //     ]
+        //     ['mode' => 'live']
         // );
         // Get Live Credentials from Dashboard
     }
@@ -39,29 +36,28 @@ class PaypalController extends Controller
         $apiContext = $this->apiContext();
 
         $payer = new Payer();
-        $payer->setPaymentMethod('paypal');
+        $payer->setPaymentMethod(payment_method:'paypal');
 
         $amount = new Amount();
-        $amount->setTotal($request->amount);
-        $amount->setCurrency('USD');
+        $amount->setTotal(total: $request->amount);
+        $amount->setCurrency(currency: 'USD');
 
         $transaction = new Transaction();
-        $transaction->setAmount($amount);
+        $transaction->setAmount(amount: $amount);
 
         $redirectUrls = new RedirectUrls();
-        $redirectUrls->setReturnUrl(route('paypal.return'))
-            ->setCancelUrl(route('paypal.cancel'));
+        $redirectUrls->setReturnUrl(return_url: route('paypal.return'))
+        ->setCancelUrl(cancel_url: route('paypal.cancel'));
 
         $payment = new Payment();
-        $payment->setIntent('sale')
-            ->setPayer($payer)
-            ->setTransactions(array($transaction))
-            ->setRedirectUrls($redirectUrls);
+        $payment->setIntent(intent: 'sale')
+        ->setPayer(payer: $payer)
+        ->setTransactions(transactions: [$transaction])
+        ->setRedirectUrls(redirect_urls: $redirectUrls);
 
         try {
-            $payment->create($apiContext);
-            echo $payment;
-            return redirect($payment->getApprovalLink());
+            $payment->create(apiContext: $apiContext);
+            return redirect(to: $payment->getApprovalLink());
         } catch (PayPalConnectionException $ex) {
             dd($ex->getData());
         }
@@ -72,18 +68,20 @@ class PaypalController extends Controller
         $apiContext = $this->apiContext();
 
         try {
-            $payment = Payment::get($request->paymentId, $apiContext);
+            $payment = Payment::get(
+                paymentId: $request->paymentId,
+                apiContext: $apiContext
+            );
         } catch (\Exception $ex) {
             dd($ex);
-            exit(1);
         }
 
         // Execute payment with payer ID
         $execution = new PaymentExecution();
-        $execution->setPayerId($request->PayerID);
+        $execution->setPayerId(payer_id: $request->PayerID);
 
         try {
-            $result = $payment->execute($execution, $apiContext);
+            $result = $payment->execute(paymentExecution: $execution, apiContext: $apiContext);
         } catch (PayPalConnectionException $ex) {
             echo $ex->getCode();
             echo $ex->getData();
@@ -94,7 +92,7 @@ class PaypalController extends Controller
         return $result;
     }
 
-    public function paypalCancel()
+    public function paypalCancel(): void
     {
         dd('canceled');
     }
