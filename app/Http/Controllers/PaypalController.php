@@ -24,6 +24,14 @@ class PaypalController extends Controller
                 env('PAYPAL_CLIENT_SECRET')
             )
         );
+
+        // Going Live
+        // ->setConfig(
+        //     [
+        //         'mode' => 'live',
+        //     ]
+        // );
+        // Get Live Credentials from Dashboard
     }
 
     public function index(Request $request)
@@ -59,7 +67,7 @@ class PaypalController extends Controller
         }
     }
 
-    public function paypalReturn(Request $request)
+    public function paypalReturn(Request $request): Payment
     {
         $apiContext = $this->apiContext();
 
