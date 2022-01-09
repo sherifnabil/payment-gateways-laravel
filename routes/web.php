@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\StripeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('paypal-form', 'paypal');
 
+Route::view('paypal-form', 'paypal');
 Route::post('paypal', [PaypalController::class, 'index'])->name('paypal');
 Route::get('paypal/return', [PaypalController::class, 'paypalReturn'])->name('paypal.return');
 Route::get('paypal/cancel', [PaypalController::class, 'paypalCancel'])->name('paypal.cancel');
+
+Route::view('stripe-form', 'stripe-form')->name('stripe-form');
+Route::post('stripe', [StripeController::class, 'stripe'])->name('stripe');
+Route::get('stripe-success', [StripeController::class, 'success'])->name('stripe.success');
+Route::get('stripe-cancel', [StripeController::class, 'cancel'])->name('stripe.cancel');

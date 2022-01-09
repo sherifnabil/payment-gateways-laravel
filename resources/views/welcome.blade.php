@@ -56,6 +56,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-6">
+                            <div class="items-center flex">
+                                <img src="/stripe.png" style="width: 180px; height:100px" alt="">
+                                <a style="display: block" href="/stripe-form" class="btn btn-primary ml-5 pull-right">Stripe From</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
