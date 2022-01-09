@@ -12,6 +12,7 @@ class StripeController extends Controller
 {
     public function index(Request $request): array
     {
+        // these keys should be saved and changed from admin with currency and else settings with mode test or live and toggle between keys based on mode
         $stripe = Stripe::setApiKey(env('STRIPE_SECRET'));
         // $token = $request->stripeToken;
         // $charge = \Stripe\Charge::create([
