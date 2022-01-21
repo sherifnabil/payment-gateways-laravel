@@ -1,6 +1,4 @@
 
-# Laravel Integetaions with some Payment Gateways
-
 ## This Repo is for integerating Laravel with some Payment gateways
 
 ### Integeration with
