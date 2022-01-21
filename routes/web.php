@@ -1,9 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymobController;
 use App\Http\Controllers\PaypalController;
 use App\Http\Controllers\StripeController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PayTabsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,6 @@ Route::get('stripe-cancel', [StripeController::class, 'cancel'])->name('stripe.c
 Route::view('paymob-form', 'paymob-form')->name('paymob-form');
 Route::get('paymob-callback', [PaymobController::class, 'callback']);
 Route::post('paymob', [PaymobController::class, 'index'])->name('paymob');
+
+Route::view('paytabs-form', 'paytabs-form')->name('paytabs-form');
+Route::post('paytabs', [PayTabsController::class, 'index'])->name('paytabs');
