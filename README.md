@@ -2,7 +2,7 @@
 ## This Repo is for integerating Laravel with some Payment gateways
 
 ### Integeration with
-#### For these integerations you need to provide env variables from you account at these gateways
+#### For these integerations you need to provide env variables from your account at their websites
 
 * [Paypal](https://developer.paypal.com/api/rest/)
 
