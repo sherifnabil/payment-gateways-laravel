@@ -54,10 +54,6 @@
                                 <a style="display: block" href="/paypal-form" class="btn btn-primary ml-5 pull-right">Paypal From</a>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="items-center flex">
                                 <img src="/stripe.png" style="width: 180px; height:100px" alt="">
@@ -75,11 +71,7 @@
                                 <a style="display: block" href="/paymob-form" class="btn btn-primary ml-5 pull-right">Paymob From</a>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="p-6">
                             <div class="items-center flex">
                                 <img src="/paytabs.jpeg" style="width: 180px; height:100px" alt="">
@@ -89,6 +81,16 @@
                     </div>
                 </div>
 
+                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-6">
+                            <div class="items-center flex">
+                                <img src="/myfatoorah.jpg" style="width: 180px; height:100px" alt="">
+                                <a style="display: block" href="/myfatoorah-form" class="btn btn-primary ml-5 pull-right">Myfatoorah From</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyFatoorahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymobController;
 use App\Http\Controllers\PaypalController;
@@ -37,3 +38,10 @@ Route::post('paymob', [PaymobController::class, 'index'])->name('paymob');
 
 Route::view('paytabs-form', 'paytabs-form')->name('paytabs-form');
 Route::post('paytabs', [PayTabsController::class, 'index'])->name('paytabs');
+
+Route::view('myfatoorah-form', 'myfatoorah-form')->name('myfatoorah-form');
+Route::post('myfatoorah-method', [MyFatoorahController::class, 'methodForm'])->name('myfatoorah-method');
+Route::post('myfatoorah', [MyFatoorahController::class, 'index'])->name('myfatoorah');
+Route::get('myfatoorah-callback', [MyFatoorahController::class, 'callback'])->name('myfatoorah.callback');
+Route::get('myfatoorah-error', [MyFatoorahController::class, 'error'])->name('myfatoorah.error');
+Route::get('myfatoorah-refund', [MyFatoorahController::class, 'refund'])->name('myfatoorah.refund');
