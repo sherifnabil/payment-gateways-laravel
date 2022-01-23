@@ -39,7 +39,8 @@
    MYFATOORAH_API_URL
    ```
 
-#### Note I'm following a simple approach select your favourite gateway then set your amount and that's it you'd be redirected to pay this might be what you need to add to your app 
+#### Note:
+```I'm following a simple approach select your favourite gateway then set your amount and that's it you'd be redirected to pay this might be what you need to add to your app ```
 
 #### Clone & Enjoy ;)
 
