@@ -6,7 +6,7 @@
 
 * [Paypal](https://developer.paypal.com/api/rest/)
 
-*    ```
+* ```
    PAYPAL_CLIENT_ID
    PAYPAL_CLIENT_SECRET
    ```
@@ -26,7 +26,7 @@
    ```
 
 * [Paytabs](https://site.paytabs.com/en/pt2-documentation/)
-*  ```
+* ```
    PAYTABS_PROFILE_ID
    PAYTABS_SERVER_KEY
    PAYTABS_CLIENT_KEY
@@ -34,7 +34,7 @@
    ```
 
 * [MyFatoorah](https://myfatoorah.readme.io/docs)
-*   ```
+* ```
    MYFATOORAH_API_TOKEN
    MYFATOORAH_API_URL
    ```
